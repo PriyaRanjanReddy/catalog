@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu inside-content">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>New item</h1>
+		</div>
+	</div>
+	<div class="row inside-content">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the Ice Cream" pattern="([^\s][A-z\s]+)" required>
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the item"
+					pattern="([^\s][A-z0-9\s]+)" required></textarea>
+
+					<label for="price">Price:</label>
+					<input type ="text" maxlength="50" class="form-control" name="price" placeholder="Price" pattern="[0-9]+" required>
+
+					
+					
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-check" aria-hidden="true"></span>Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+{% endblock %}

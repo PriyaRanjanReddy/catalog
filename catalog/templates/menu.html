@@ -1,0 +1,72 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+	
+
+	<div class="row banner menu inside-content">
+		<div class="col-md-11 col-md-offset-1 padding-none state-headers">
+			<div><h1>{{ company.name }}
+			<figure class="creator">
+				<img src="{{creator.picture}}">
+				<figcaption style="color: black;text-align: center;">{{creator.name}}</figcaption>
+			</figure>
+			</h1>
+
+		</div>
+	</div>
+</div>
+
+<
+	<div class="row padding-top padding-bottom inside-content">
+	
+		<div class="col-md-11 padding-none">
+			<a href="{{url_for('editCompany', company_id = company.id )}}">
+				<button class="btn btn-default" id="new-menu-item">
+					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Edit Company 
+				</button>
+			</a>
+			<a href="{{url_for('newIcecream', company_id = company.id )}}">
+				<button class="btn btn-default" id="-menu-item">
+					<span class="glyphicon glyphicon-road" aria-hidden="true"></span>Add an icecream
+				</button>
+			</a>
+						
+		</div>
+		
+	</div>
+
+
+{% for i in items %}
+							<div class="container-fluid inside-content">
+							<div class="menu-item panel-group">
+							<div class="panel panel-success">	
+							<div class="panel panel-heading">
+							<div class="row">
+								<div class="col-md-8">	
+								<h3>{{i.name}}</h3>
+							</div>
+							<div class="col-md-2">
+								<a class="btn icon-btn btn-success" href='{{url_for('editIcecream', company_id = company.id, menu_id=i.id ) }}'><span class="glyphicon btn-glyphicon glyphicon-edit img-circle text-default"></span>Edit</a>
+							</div>
+							<div class="col-md-2">
+								<a class="btn icon-btn btn-danger" href='{{url_for('deleteIcecream', company_id = company.id, menu_id=i.id ) }}'><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-default"></span>Delete</a>
+							</div>
+							</div></div>
+							<div class="panel-body">	
+								<p><strong>Description: </strong>{{i.description}}</p>
+								<p><strong>Price: </strong>{{i.price}}</p>
+								</div>
+							</div>
+					</div>
+				</div>
+					{% endfor %}
+
+	
+	
+	<div class="menu-side">
+		  <img src="{{url_for('static', filename='menu-side-3.jpg')}}" />
+	</div>
+	
+{% endblock %}

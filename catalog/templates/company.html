@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+
+<div class="banner-content">
+  <div class="row top-menu">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 text-right">
+          </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"></div>
+  </div>
+  <div class="row banner main">
+    <div class="col-md-1"></div>
+    <div class="col-md-11 padding-none">
+      <h1 style="font-family: cursive;font-weight: bold;">Ice cream Parlour</h1>
+      
+    </div>
+  
+    
+<div class="row padding-top padding-bottom">
+  
+      <div class="col-md-3">
+      <a href="{{url_for('newCompany')}}">
+        <button class="btn btn-default" id="new-company">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add company
+        </button>
+      </a>
+    
+  </div>
+</div>
+</div>      
+</div>
+    
+<div style="margin: 300px;">
+	{% for i in companies %}
+		<a href = "{{url_for('showMenu', company_id = i.id)}}">
+					<div class="row company-list">
+						<div class="col-md-7">
+						<h3>{{i.name}}</h3></div>
+						<div class="col-md-3">
+						<a href="{{url_for('deleteCompany', company_id = i.id )}}">
+				<button class="btn btn-default delete" id="delete-company">
+					<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+				</button>
+			</a></div>
+		</a>
+
+	</div>
+	{% endfor %}
+{% endblock %}
